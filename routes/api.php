@@ -12,7 +12,26 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+header('Access-Control-Allow-Origin:  *');
+header('Access-Control-Allow-Methods:  POST, GET, OPTIONS, PUT, DELETE');
+header('Access-Control-Allow-Headers:  Content-Type, X-Auth-Token, Origin, Authorization');
+
+
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::post('/departamentos', 'DepartamentoController@store');
+Route::get('/departamentos', 'DepartamentoController@all');
+
+Route::post('/reclamacoes', 'ReclamacaoController@store');
+Route::get('/reclamacoes', 'ReclamacaoController@all');
+
+Route::post('/sugestoes', 'SugestaoController@store');
+Route::get('/sugestoes', 'SugestaoController@all');
+
+
+Route::get('/categoriaReclamacao', 'CategoriaReclamacaoController@all');
+
+Route::get('/categoriaSugestao', 'CategoriaSugestaoController@all');

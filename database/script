@@ -1,0 +1,19 @@
+INSERT INTO DEPARTAMENTOS VALUES ( 'Departamento de Engenharia Civil','DECI');
+INSERT INTO DEPARTAMENTOS VALUES ( 'Departamento de Engenharia Electrotécnica','DEEL');
+INSERT INTO DEPARTAMENTOS VALUES ( 'Departamento de Engenharia Mecânica','DEMA');
+INSERT INTO DEPARTAMENTOS VALUES ( 'Departamento de Engenharia Química,'DEQUI');
+
+INSERT INTO categoria_reclamacaos VALUES ('Assédio sexual');
+INSERT INTO categoria_reclamacaos VALUES ('Assiduidade do Docente');
+INSERT INTO categoria_reclamacaos VALUES ('Atendimendo dos funcionários não docentes');
+INSERT INTO categoria_reclamacaos VALUES ('Metologia de Ensino');
+INSERT INTO categoria_reclamacaos VALUES ('Secretaria');
+INSERT INTO categoria_reclamacaos VALUES ('Património');
+INSERT INTO categoria_reclamacaos VALUES ('Outra');
+
+INSERT INTO categoria_sugestaos VALUES ('Património');
+INSERT INTO categoria_sugestaos VALUES ('Metodologia de Ensino');
+INSERT INTO categoria_sugestaos VALUES ('Formações extra-curriculares');
+INSERT INTO categoria_reclamacaos VALUES ('Outra);
+
+
