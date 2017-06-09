@@ -21,13 +21,10 @@ class CreateReclamacaosTable extends Migration
             $table->string('estado');
             $table->string('reclamante');
             $table->date('data');
-            $table->integer('categoria_reclamacao_id')->unsigned();
-            $table->integer('departamento_id')->unsigned();
-            $table->foreign('categoria_reclamacao_id')->references('id')->on('categoria_reclamacaos')->onDelete('cascade');
-            $table->foreign('departamento_id')->references('id')->on('departamentos')->onDelete('cascade');
-
-
-  
+             $table->integer('categoria_id')->unsigned();
+             $table->integer('turma_id')->unsigned();
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->foreign('turma_id')->references('id')->on('turmas')->onDelete('cascade'); 
 
 
            $table->timestamps();

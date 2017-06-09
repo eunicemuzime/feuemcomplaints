@@ -17,12 +17,13 @@ class CreateSugestaosTable extends Migration
             $table->string('tipo');
             $table->string('descricao');
             $table->string('estado');
-            $table->string('contribuinte');
+            $table->string('sugestor');
             $table->date('data');
-            $table->integer('categoria_sugestao_id')->unsigned();
-            $table->integer('departamento_id')->unsigned();
-            $table->foreign('categoria_sugestao_id')->references('id')->on('categoria_sugestaos')->onDelete('cascade');
-            $table->foreign('departamento_id')->references('id')->on('departamentos')->onDelete('cascade');
+             $table->integer('categoria_id')->unsigned();
+             $table->integer('turma_id')->unsigned();
+            $table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('cascade');
+            $table->foreign('turma_id')->references('id')->on('turmas')->onDelete('cascade'); 
+
             $table->timestamps();
         });
 

@@ -8,12 +8,12 @@ class Reclamacao extends Model
 {
    protected $fillable = ['tipo','descricao','propostaSolucao','data','estado','reclamante'];
 
-   public function departamento(){
+   public function turma(){
 
-			return $this->belongsTo('\App\Departamento');
+			return $this->belongsTo('\App\Turma');
 	}
 
-	public function categoriaReclamacao(){
-	  	return $this->belongsTo('\App\CategoriaReclamacao');
+	public function categoria(){
+	  	return $this->belongsTo('\App\Categoria');
 	}
 }

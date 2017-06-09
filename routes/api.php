@@ -25,13 +25,28 @@ Route::get('/user', function (Request $request) {
 Route::post('/departamentos', 'DepartamentoController@store');
 Route::get('/departamentos', 'DepartamentoController@all');
 
+
+
+
 Route::post('/reclamacoes', 'ReclamacaoController@store');
 Route::get('/reclamacoes', 'ReclamacaoController@all');
+
+
 
 Route::post('/sugestoes', 'SugestaoController@store');
 Route::get('/sugestoes', 'SugestaoController@all');
 
 
-Route::get('/categoriaReclamacao', 'CategoriaReclamacaoController@all');
 
-Route::get('/categoriaSugestao', 'CategoriaSugestaoController@all');
+Route::post('/categorias', 'CategoriaController@registar');
+Route::get('/categorias', 'CategoriaController@all');
+Route::get('/categorias/reclamacao', 'CategoriaController@reclamacoes');
+
+
+//Turma
+Route::post('/turmas', 'TurmaController@registar');
+Route::get('/turmas', 'TurmaController@all');
+
+Route::get('/niveis', 'TurmaController@niveis');
+Route::get('/turnos', 'TurmaController@turnos');
+Route::get('/cursos', 'TurmaController@cursos');

@@ -8,12 +8,12 @@ class Sugestao extends Model
 {
     protected $fillable = ['tipo','categoria','descricao','data','estado','contribuinte'];
 
-   public function departamento(){
+ public function turma(){
 
-			return $this->belongsTo('\App\Departamento');
+			return $this->belongsTo('\App\Turma');
 	}
 
-	public function categoriaSugestao(){
-	  	return $this->belongsTo('\App\CategoriaSugestao');
+	public function categoria(){
+	  	return $this->belongsTo('\App\Categoria');
 	}
 }
