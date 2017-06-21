@@ -30,11 +30,19 @@ Route::get('/departamentos', 'DepartamentoController@all');
 
 Route::post('/reclamacoes', 'ReclamacaoController@store');
 Route::get('/reclamacoes', 'ReclamacaoController@all');
+Route::put('/reclamacoes/{id}', 'ReclamacaoController@update');
+Route::get('/reclamacoes/pendentes', 'ReclamacaoController@reclamacoesPendentes');
+Route::get('/reclamacoes/validas', 'ReclamacaoController@reclamacoesValidas');
+Route::get('/reclamacoes/invalidas', 'ReclamacaoController@reclamacoesInvalidas');
+Route::get('/reclamacoes/em-atendimento', 'ReclamacaoController@reclamacoesEmAtendimento');
+Route::get('/reclamacoes/solucionadas', 'ReclamacaoController@reclamacoesSolucionadas');
+Route::get('/reclamacoes/nao-solucionadas', 'ReclamacaoController@reclamacoesNaoSolucionadas');
+Route::get('/reclamacoes/por-categoria', 'ReclamacaoController@reclamacoesCategoria');
 
 
 
 Route::post('/sugestoes', 'SugestaoController@store');
-Route::get('/sugestoes', 'SugestaoController@all');
+Route::get('/sugestoes', 'SugestaoController@reclamacoesPendentes');
 
 
 

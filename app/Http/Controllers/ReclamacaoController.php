@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Reclamacao;
 use App\Categoria;
@@ -42,6 +43,21 @@ class ReclamacaoController extends Controller
 
 
     }
+
+    public function update(Request $request,$id) {
+
+        $data=$request->all();    
+
+        $reclamacao = Reclamacao::find($id);
+        $reclamacao->update($data);
+        
+
+       return $reclamacao;
+
+
+    }
+    
+
     //retornar todas as reclmacoes
     public function all()
     {
@@ -50,10 +66,61 @@ class ReclamacaoController extends Controller
         return $reclamacao;
     }
     //retornar reclamacoes pendentes
-    public function reclamacoesPendenctes()
+    public function reclamacoesPendentes()
+    {
+        // $reclamacao =DB::table('reclamacaos as r')->join('categorias','r.categoria_id','categorias.id')->get();
+
+        $reclamacao =DB::table('reclamacaos as r')
+            ->join('categorias as c', 'r.categoria_id', '=', 'c.id')
+            ->join('turmas as t', 'r.turma_id', '=', 't.id')
+            ->select('r.id as id','r.tipo as tipo', 'r.descricao as descricao', 'r.propostaSolucao as propostaSolucao', 'r.estado as estado', 'r.reclamante as reclamante', 'r.data as data', 'c.designacao as categoria', 't.designacao as turma')->where('estado','=','pendente')
+             ->get();
+
+            return $reclamacao;
+    }
+    
+        public function reclamacoesCategoria()
     {
 
-        $reclamacao = \App\Reclamacao::all();
+           $reclamacao =DB::table('reclamacaos as r')
+            ->join('categorias as c', 'r.categoria_id', '=', 'c.id')
+            ->select('c.designacao as categoria', DB::raw('count(*) as total'))
+            ->groupBy('categoria')
+             ->get();
+             return $reclamacao;
+    }
+
+    public function reclamacoesValidas()
+    {
+
+        $reclamacao =\App\Reclamacao::where('estado','=','valida')->get();
+        return $reclamacao;
+    }
+    public function reclamacoesInvalidas()
+    {
+
+        $reclamacao =\App\Reclamacao::where('estado','=','invalida')->get();
+        return $reclamacao;
+    }
+
+    public function reclamacoesEmAtendimento()
+    {
+
+        $reclamacao =\App\Reclamacao::where('estado','=','em atendimento')->get();
+        return $reclamacao;
+    }
+
+    public function reclamacoesSolucionadas()
+    {
+
+        $reclamacao =\App\Reclamacao::where('estado','=','solucionada')->get();
+        return $reclamacao;
+    }
+
+    public function reclamacoesNaoSolucionadas()
+    {
+
+        $reclamacao =\App\Reclamacao::where('estado','=','nao solucionadas')->get();
         return $reclamacao;
     }
 }
