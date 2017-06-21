@@ -68,8 +68,6 @@ class ReclamacaoController extends Controller
     //retornar reclamacoes pendentes
     public function reclamacoesPendentes()
     {
-        // $reclamacao =DB::table('reclamacaos as r')->join('categorias','r.categoria_id','categorias.id')->get();
-
         $reclamacao =DB::table('reclamacaos as r')
             ->join('categorias as c', 'r.categoria_id', '=', 'c.id')
             ->join('turmas as t', 'r.turma_id', '=', 't.id')
@@ -92,15 +90,24 @@ class ReclamacaoController extends Controller
 
     public function reclamacoesValidas()
     {
+        $reclamacao =DB::table('reclamacaos as r')
+            ->join('categorias as c', 'r.categoria_id', '=', 'c.id')
+            ->join('turmas as t', 'r.turma_id', '=', 't.id')
+            ->select('r.id as id','r.tipo as tipo', 'r.descricao as descricao', 'r.propostaSolucao as propostaSolucao', 'r.estado as estado', 'r.reclamante as reclamante', 'r.data as data', 'c.designacao as categoria', 't.designacao as turma')->where('estado','=','valida')
+             ->get();
 
-        $reclamacao =\App\Reclamacao::where('estado','=','valida')->get();
-        return $reclamacao;
+            return $reclamacao;
     }
     public function reclamacoesInvalidas()
     {
 
-        $reclamacao =\App\Reclamacao::where('estado','=','invalida')->get();
-        return $reclamacao;
+       $reclamacao =DB::table('reclamacaos as r')
+            ->join('categorias as c', 'r.categoria_id', '=', 'c.id')
+            ->join('turmas as t', 'r.turma_id', '=', 't.id')
+            ->select('r.id as id','r.tipo as tipo', 'r.descricao as descricao', 'r.propostaSolucao as propostaSolucao', 'r.estado as estado', 'r.reclamante as reclamante', 'r.data as data', 'c.designacao as categoria', 't.designacao as turma')->where('estado','=','invalida')
+             ->get();
+
+            return $reclamacao;
     }
 
     public function reclamacoesEmAtendimento()
