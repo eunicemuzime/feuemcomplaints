@@ -17,7 +17,6 @@ class CreateCategoriasTable extends Migration
             $table->increments('id');
             $table->string('tipo');
             $table->string('designacao');
-            $table->timestamps();
         });
     }
 

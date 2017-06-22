@@ -1,19 +1,259 @@
-INSERT INTO DEPARTAMENTOS VALUES ( 'Departamento de Engenharia Civil','DECI');
-INSERT INTO DEPARTAMENTOS VALUES ( 'Departamento de Engenharia Electrotécnica','DEEL');
-INSERT INTO DEPARTAMENTOS VALUES ( 'Departamento de Engenharia Mecânica','DEMA');
-INSERT INTO DEPARTAMENTOS VALUES ( 'Departamento de Engenharia Química,'DEQUI');
 
-INSERT INTO categoria_reclamacaos VALUES ('Assédio sexual');
-INSERT INTO categoria_reclamacaos VALUES ('Assiduidade do Docente');
-INSERT INTO categoria_reclamacaos VALUES ('Atendimendo dos funcionários não docentes');
-INSERT INTO categoria_reclamacaos VALUES ('Metologia de Ensino');
-INSERT INTO categoria_reclamacaos VALUES ('Secretaria');
-INSERT INTO categoria_reclamacaos VALUES ('Património');
-INSERT INTO categoria_reclamacaos VALUES ('Outra');
+\App\Categoria::insert([
+    [
+        'tipo' => 'reclamacao',
+        'designacao' => 'Assédio sexual',
+    ],
+    [
+        'tipo' => 'reclamacao',
+        'designacao' => 'Assiduidade do Docente',
+    ],
+    [
+        'tipo' => 'reclamacao',
+        'designacao' => 'Atendimendo dos funcionários não docentes',
+    ],
+    [
+        'tipo' => 'reclamacao',
+        'designacao' => 'Metologia de Ensino',
+    ],
+    [
+        'tipo' => 'reclamacao',
+        'designacao' => 'Secretaria',
+    ],
+    [
+        'tipo' => 'sugestao',
+        'designacao' => 'Metodologia de Ensino',
+    ],
+    [
+        'tipo' => 'sugestao',
+        'designacao' => 'Formações extra-curriculares',
+    ],   
+]);
 
-INSERT INTO categoria_sugestaos VALUES ('Património');
-INSERT INTO categoria_sugestaos VALUES ('Metodologia de Ensino');
-INSERT INTO categoria_sugestaos VALUES ('Formações extra-curriculares');
-INSERT INTO categoria_reclamacaos VALUES ('Outra);
+\App\Curso::insert([
+    [
+        'designacao' => 'Engenharia Eléctrica',
+    ],
+    [
+        'designacao' => 'Engenharia Electrónica',
+    ],
+    [
+        'designacao' => 'Engenharia Informática',
+    ],    
+]);
+
+\App\Nivel::insert([
+    [
+        'designacao' => '1º ano',
+    ],
+     [
+        'designacao' => '2º ano',
+    ],
+    [
+        'designacao' => '3º ano',
+    ],
+    [
+        'designacao' => '4º ano',
+    ], 
+     [
+        'designacao' => '5º ano',
+    ],  
+]);
+
+\App\Turno::insert([
+    [
+        'designacao' => 'Laboral',
+    ],
+     [
+        'designacao' => 'Pós laboral',
+    ],   
+]);
+
+\App\Turma::insert([
+    [
+        'designacao' => 'Eléctrica 1º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 1, 
+        'nivel_id' => 1,     
+    ],
+    [
+        'designacao' => 'Eléctrica 2º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 1, 
+        'nivel_id' => 2,     
+    ],
+    [
+        'designacao' => 'Eléctrica 3º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 1, 
+        'nivel_id' => 3,     
+    ],
+    [
+        'designacao' => 'Eléctrica 4º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 1, 
+        'nivel_id' => 4,     
+    ],
+    [
+        'designacao' => 'Eléctrica 5º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 1, 
+        'nivel_id' => 5,     
+    ],
+    [
+        'designacao' => 'Electrónica 1º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 2, 
+        'nivel_id' => 1,     
+    ],
+    [
+        'designacao' => 'Electrónica 2º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 2, 
+        'nivel_id' => 2,     
+    ],
+    [
+        'designacao' => 'Electrónica 3º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 2, 
+        'nivel_id' => 3,     
+    ],
+    [
+        'designacao' => 'Electrónica 4º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 2, 
+        'nivel_id' => 4,     
+    ],
+    [
+        'designacao' => 'Electrónica 5º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 2, 
+        'nivel_id' => 5,     
+    ],
+    [
+        'designacao' => 'Informática 1º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 3, 
+        'nivel_id' => 1,     
+    ],
+    [
+        'designacao' => 'Informática 2º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 3, 
+        'nivel_id' => 2,     
+    ],
+    [
+        'designacao' => 'Informática 3º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 3, 
+        'nivel_id' => 3,     
+    ],
+    [
+        'designacao' => 'Informática 4º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 3, 
+        'nivel_id' => 4,     
+    ],
+    [
+        'designacao' => 'Informática 5º ano-Laboral',
+        'turno_id' => 1,
+        'curso_id' => 3, 
+        'nivel_id' => 5,     
+    ],
+    [
+        'designacao' => 'Eléctrica 1º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 1, 
+        'nivel_id' => 1,     
+    ],
+    [
+        'designacao' => 'Eléctrica 2º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 1, 
+        'nivel_id' => 2,     
+    ],
+    [
+        'designacao' => 'Eléctrica 3º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 1, 
+        'nivel_id' => 3,     
+    ],
+    [
+        'designacao' => 'Eléctrica 4º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 1, 
+        'nivel_id' => 4,     
+    ],
+    [
+        'designacao' => 'Eléctrica 5º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 1, 
+        'nivel_id' => 5,     
+    ],
+    [
+        'designacao' => 'Electrónica 1º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 2, 
+        'nivel_id' => 1,     
+    ],
+    [
+        'designacao' => 'Electrónica 2º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 2, 
+        'nivel_id' => 2,     
+    ],
+    [
+        'designacao' => 'Electrónica 3º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 2, 
+        'nivel_id' => 3,     
+    ],
+    [
+        'designacao' => 'Electrónica 4º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 2, 
+        'nivel_id' => 4,     
+    ],
+    [
+        'designacao' => 'Electrónica 5º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 2, 
+        'nivel_id' => 5,     
+    ],
+    [
+        'designacao' => 'Informática 1º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 3, 
+        'nivel_id' => 1,     
+    ],
+    [
+        'designacao' => 'Informática 2º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 3, 
+        'nivel_id' => 2,     
+    ],
+    [
+        'designacao' => 'Informática 3º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 3, 
+        'nivel_id' => 3,     
+    ],
+    [
+        'designacao' => 'Informática 4º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 3, 
+        'nivel_id' => 4,     
+    ],
+    [
+        'designacao' => 'Informática 5º ano-PósLaboral',
+        'turno_id' => 2,
+        'curso_id' => 3, 
+        'nivel_id' => 5,     
+    ],  
+
+     
+]);
+
+
 
 

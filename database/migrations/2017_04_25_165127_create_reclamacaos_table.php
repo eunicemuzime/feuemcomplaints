@@ -18,6 +18,7 @@ class CreateReclamacaosTable extends Migration
             $table->string('tipo');
             $table->string('descricao');
             $table->string('propostaSolucao')->nullable();
+            $table->string('solucao')->nullable();
             $table->string('estado');
             $table->string('reclamante');
             $table->date('data');
