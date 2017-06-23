@@ -123,7 +123,7 @@ class ReclamacaoController extends Controller
              ->get();
 
             return $reclamacao;
-
+}
     public function reclamacoesSolucionadas()
     {
 
@@ -131,7 +131,7 @@ class ReclamacaoController extends Controller
             ->join('categorias as c', 'r.categoria_id', '=', 'c.id')
             ->join('turmas as t', 'r.turma_id', '=', 't.id')
             ->select('r.id as id','r.tipo as tipo', 'r.descricao as descricao', 'r.propostaSolucao as propostaSolucao', 'r.estado as estado', 'r.reclamante as reclamante', 'r.data as data', 'r.solucao as solucao','c.designacao as categoria', 't.designacao as turma')
-             ->where('estado','=','invalida')
+             ->where('estado','=','solucionada')
              ->get();
 
             return $reclamacao;
