@@ -37,6 +37,10 @@ Route::get('/reclamacoes/em-atendimento', 'ReclamacaoController@reclamacoesEmAte
 Route::get('/reclamacoes/solucionadas', 'ReclamacaoController@reclamacoesSolucionadas');
 Route::get('/reclamacoes/nao-solucionadas', 'ReclamacaoController@reclamacoesNaoSolucionadas');
 Route::get('/reclamacoes/por-categoria', 'ReclamacaoController@reclamacoesCategoria');
+Route::get('/reclamacoes/por-estado', 'ReclamacaoController@reclamacoesEstado');
+Route::get('/reclamacoes/por-tipo', 'ReclamacaoController@reclamacoesTipo');
+Route::get('/reclamacoes/por-nivel', 'ReclamacaoController@reclamacoesNivel');
+
 
 
 
@@ -57,4 +61,6 @@ Route::get('/turmas', 'TurmaController@all');
 Route::get('/niveis', 'TurmaController@niveis');
 Route::get('/turnos', 'TurmaController@turnos');
 Route::get('/cursos', 'TurmaController@cursos');
+
 Route::post('/authenticate', 'AuthenticateController@authenticate');
+Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');

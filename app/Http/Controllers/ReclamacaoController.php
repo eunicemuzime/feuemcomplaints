@@ -76,6 +76,19 @@ class ReclamacaoController extends Controller
 
             return $reclamacao;
     }
+
+    public function reclamacoesNivel()
+    {
+        $reclamacao =DB::table('reclamacaos as r')
+            ->join('categorias as c', 'r.categoria_id', '=', 'c.id')
+            ->join('turmas as t', 'r.turma_id', '=', 't.id')
+            ->join('nivels as n', 't.nivel_id', '=', 'n.id')
+            ->select('n.designacao as nivel',DB::raw('count(*) as total'))
+            ->groupBy('nivel')
+            ->get();
+
+            return $reclamacao;
+    }
     
         public function reclamacoesCategoria()
     {
@@ -87,6 +100,27 @@ class ReclamacaoController extends Controller
              ->get();
              return $reclamacao;
     }
+
+        public function reclamacoesEstado()
+    {
+
+           $reclamacao =DB::table('reclamacaos as r')
+            ->select('estado', DB::raw('count(*) as total'))
+            ->groupBy('estado')
+             ->get();
+             return $reclamacao;
+    }
+
+        public function reclamacoesTipo()
+    {
+
+           $reclamacao =DB::table('reclamacaos as r')
+            ->select('tipo', DB::raw('count(*) as total'))
+            ->groupBy('tipo')
+             ->get();
+             return $reclamacao;
+    }
+
 
     public function reclamacoesValidas()
     {

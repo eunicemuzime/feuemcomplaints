@@ -19,7 +19,7 @@ class CategoriaController extends Controller
     }
      public function all()
     {
-        $categorias = \App\Categoria::all();
+        $categorias = \App\Categoria::orderBy('designacao', 'asc')->get();
         return $categorias;
     }
 
